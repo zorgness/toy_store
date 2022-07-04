@@ -7,6 +7,9 @@ Rails.application.routes.draw do
       resources :offers, only: [:new]
     end
   end
+  resources :toys, only: [:index, :show, :new, :edit] do
+    resources :offers, only: [:new]
+  end
   resources :toys, only: [:destroy]
   resources :offers, only: [:destroy]
 end
