@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
+Toy.destroy_all
 User.destroy_all
 Category.destroy_all
 
@@ -24,7 +25,6 @@ user2.photo.attach(io: img2, filename: "1.jpeg", content_type: 'image/jpeg')
 img3 = URI.open('https://img.freepik.com/free-photo/indoor-shot-beautiful-happy-african-american-woman-smiling-cheerfully-keeping-her-arms-folded-relaxing-indoors-after-morning-lectures-university_273609-1270.jpg')
 user3.photo.attach(io: img3, filename: "1.jpeg", content_type: 'image/jpeg')
 
-
 mecha = Category.new(name: 'Mecha', photo_path: 'mecha.jpg')
 mecha.save
 
@@ -42,3 +42,16 @@ starwars.save
 
 boardgames = Category.new(name: 'Boardgames', photo_path: 'boardgames.jpg')
 boardgames.save
+
+mecha1 = Toy.new(name: 'Robot', description: 'Super robot from space', price: 20, category_id: mecha.id, user_id: user1.id)
+
+mecha1.save
+
+img_mecha1 = URI.open('https://cdn.archonia.com/images/1-80429205-1-1-original1/joy-toy-god-of-war-86-white-mecha-1-25-scale-figure.jpg')
+img_mecha2 = URI.open('https://cdn.archonia.com/images/1-80429207-1-1-original1/joy-toy-god-of-war-86-white-mecha-1-25-scale-figure.jpg')
+img_mecha3 = URI.open('https://cdn.archonia.com/images/1-80429209-1-1-original1/joy-toy-god-of-war-86-white-mecha-1-25-scale-figure.jpg')
+
+photos = [img_mecha1, img_mecha2, img_mecha3]
+photos.each_with_index do |photo, index|
+  mecha1.photos.attach(io: photo, filename: "#{index}.jpeg", content_type: 'image/jpeg')
+end

@@ -1,0 +1,18 @@
+<p class="name-title text-center"><%= @toy.name %></p>
+
+<div class="parent">
+  <% @toy.photos.each_with_index do |photo, index|  %>
+    <div class="div<%= index + 1 %>">
+      <%= cl_image_tag photo.key, height: "100%", width: "100%" %>
+    </div>
+  <% end %>
+</div>
+
+<div>
+  <h4><%= toy.description %></h4>
+</div>
+
+
+<div class= "offer-button">
+  <button class="btn btn-primary">Make an offer</button>
+</div>

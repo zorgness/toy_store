@@ -2,9 +2,19 @@
 
 <div>
   <div>
-      <% @toys.each do |toys| %>
+      <% @toys.each do |toy| %>
         <ul>
-          <li><%= toy.name %></li>
+          <%= link_to toy_path(toy) do %>
+            <div class="card-product">
+              <%= cl_image_tag toy.photos[0].key %>
+              <div class="card-product-infos">
+                <h2><%= toy.name %></h2>
+                <p><%= toy.description %></p>
+              </div>
+            </div>
+
+
+          <% end %>
         </ul>
       <% end %>
   </div>
