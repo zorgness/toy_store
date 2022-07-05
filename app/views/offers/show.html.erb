@@ -1,0 +1,17 @@
+<h1>Your offer have been send to <strong><%= @offer.toy.user.first_name %></strong></h1>
+
+
+<p>You have offer <%= @offer.price %> $ for the <%= @offer.toy.name %></p>
+
+
+ <%= link_to toy_path(@offer.toy) do %>
+            <div class="card-product">
+              <%= cl_image_tag @offer.toy.photos[0].key %>
+              <div class="card-product-infos">
+                <h2><%= @offer.toy.name %></h2>
+                <p><%= @offer.toy.description %></p>
+              </div>
+            </div>
+
+
+          <% end %>

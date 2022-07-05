@@ -19,5 +19,9 @@
 
 <div class= "offer-button">
 
-  <%= link_to 'Make an offer', new_toy_offer_path(@toy), class: "btn btn-primary"  %>
+    <%= simple_form_for [@toy, @offer] do |f| %>
+      <%= f.input :price %>
+
+      <%= f.button :submit, class: "btn btn-primary" %>
+    <% end %>
 </div>
