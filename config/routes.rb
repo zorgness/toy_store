@@ -3,13 +3,11 @@ Rails.application.routes.draw do
   root to: 'categories#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :categories, only: [:index] do
-    resources :toys, only: [:index] do
-      resources :offers, only: [:new]
-    end
+    resources :toys, only: [:index, :show, :new, :edit]
   end
-  resources :toys, only: [ :show, :new, :edit] do
-    resources :offers, only: [:new]
+  resources :toys, only: [:index, :show, :new, :create, :edit] do
+    resources :offers, only: [:new, :create]
   end
   resources :toys, only: [:destroy]
-  resources :offers, only: [:destroy]
+  resources :offers, only: [:show, :destroy]
 end
