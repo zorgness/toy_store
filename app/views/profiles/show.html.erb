@@ -1,0 +1,42 @@
+<h1><%= current_user.first_name %></h1>
+<h3><%= current_user.email %></h3>
+
+
+
+
+<%= cl_image_tag current_user.photo.key, class: "avatar-large"%>
+<%= link_to 'Edit', edit_user_registration_path(current_user) %>
+
+
+<h3>My Toys</h3>
+
+ <div>
+      <% current_user.toys.each do |toy| %>
+        <ul>
+          <%= link_to toy_path(toy) do %>
+            <div class="card-product">
+              <%= cl_image_tag toy.photos[0].key %>
+              <div class="card-product-infos">
+                <h2><%= toy.name %></h2>
+                <p><%= toy.description %></p>
+                <%= link_to 'Edit', edit_toy_path(toy) %>
+                <%= link_to 'Delete', toy_path(toy), method: :delete ,data: { confirm: "Are you sure?" }%>
+              </div>
+            </div>
+
+
+          <% end %>
+        </ul>
+      <% end %>
+  </div>
+
+
+  <div>
+      <h3>My Offers</h3>
+
+      <% current_user.toys.each do |toy| %>
+      <% toy.offers.each do |offer|%>
+          <p>user: <%= offer.user.first_name %> make an <%= offer.price %> $ for <%= offer.toy.name %> </p>
+      <% end %>
+      <% end %>
+  </div>
