@@ -16,7 +16,7 @@ class ToysController < ApplicationController
     @toy = Toy.new(toy_params)
     @toy.user = current_user
     if @toy.save
-      redirect_to category_toy(@toy)
+      redirect_to @toy
     else
       render :new
     end
