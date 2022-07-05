@@ -5,6 +5,7 @@ class ToysController < ApplicationController
   end
 
   def show
+    @offer = Offer.new
     @toy = Toy.find(params[:id])
   end
 

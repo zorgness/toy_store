@@ -5,7 +5,7 @@ class OffersController < ApplicationController
 
   def create
     @toy = Toy.find(params[:toy_id])
-    @offer = Offers.new(offer_params)
+    @offer = Offer.new(offer_params)
     @offer.toy = @toy
     @offer.user = current_user
     if @offer.save
