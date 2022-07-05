@@ -17,7 +17,7 @@ class ToysController < ApplicationController
     @toy = Toy.new(toy_params)
     @toy.user = current_user
     if @toy.save
-      redirect_to category_toy(@toy)
+      redirect_to @toy
     else
       render :new
     end
@@ -26,6 +26,6 @@ class ToysController < ApplicationController
   private
 
   def toy_params
-    params.require(:toy).permit(:name, :description, :price, photos: [])
+    params.require(:toy).permit(:name, :description, :price, :category_id, photos: [])
   end
 end

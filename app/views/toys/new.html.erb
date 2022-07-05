@@ -1,0 +1,7 @@
+<%= simple_form_for [@category,@toy] do |f| %>
+  <%= f.association :category %>
+  <%= f.input :name %>
+  <%= f.input :price%>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit %>
+<% end %>
