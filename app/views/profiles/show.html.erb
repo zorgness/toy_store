@@ -37,6 +37,18 @@
       <% current_user.toys.each do |toy| %>
       <% toy.offers.each do |offer|%>
           <p>user: <%= offer.user.first_name %> make an <%= offer.price %> $ for <%= offer.toy.name %> </p>
+          <%= link_to 'validate', validation_path(offer), method: :patch%>
+          <%= link_to 'refuse', refuse_path(offer), method: :patch %>
       <% end %>
       <% end %>
+  </div>
+
+  <div>
+    <h3>My Requests</h3>
+    <% current_user.offers.each do |offer| %>
+      <p>your have proposed: <%= offer.price %> $ for <%= offer.toy.name %> to <%= offer.toy.user.first_name %> </p>
+     <p>validate: <%= offer.validated %> refused: <%= offer.refused %> </p>
+      <%= link_to 'Delete', offer_path(offer), method: :delete ,data: { confirm: "Are you sure?" }%>
+    <% end %>
+
   </div>
