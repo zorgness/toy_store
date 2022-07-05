@@ -11,7 +11,7 @@ class OffersController < ApplicationController
     if @offer.save
       redirect_to @offer, notice: 'Offer was successfully created.'
     else
-      render :new
+      redirect_to @toy, notice: 'Offer could not be created'
     end
   end
 
