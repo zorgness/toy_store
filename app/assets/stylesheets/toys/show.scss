@@ -26,3 +26,18 @@
     grid-area: 1 / 4 / 2 / 5;
     border: solid 1px white;
     }
+  .div4 {
+      margin-right: 4px;
+      grid-area: 2 / 4 / 3 / 5;
+
+      }
+  .div5 {
+        margin-right: 4px;
+        grid-area: 2 / 3 / 3 / 4;
+
+        }
+  .offer-button {
+      margin: 20px;
+      display: flex;
+      justify-content: center;
+    }

@@ -1,4 +1,4 @@
-<p class="name-title text-center"><%= @toy.name %></p>
+<h2 class="name-title text-center"><%= @toy.name %></h2>
 
 <div class="parent">
   <% @toy.photos.each_with_index do |photo, index|  %>
@@ -6,13 +6,18 @@
       <%= cl_image_tag photo.key, height: "100%", width: "100%" %>
     </div>
   <% end %>
+  <div class="div4">
+      <h4><%= @toy.description %></h4>
+  </div>
+  <div class="div5">
+      <p>price: <%= @toy.price %> $</p>
+  </div>
 </div>
 
-<div>
-  <h4><%= toy.description %></h4>
-</div>
+
 
 
 <div class= "offer-button">
-  <button class="btn btn-primary">Make an offer</button>
+
+  <%= link_to 'Make an offer', new_toy_offer_path(@toy), class: "btn btn-primary"  %>
 </div>
