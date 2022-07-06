@@ -23,6 +23,21 @@ class ToysController < ApplicationController
     end
   end
 
+  def edit
+    @toy = Toy.find(params[:id])
+  end
+
+  def update
+    @toy.update(activity_params)
+    redirect_to @toy
+  end
+
+  def destroy
+    @toy = Toy.find(params[:id])
+    @toy.destroy
+    redirect_to profile_path(current_user)
+  end
+
   private
 
   def toy_params
