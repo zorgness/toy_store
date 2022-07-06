@@ -1,4 +1,12 @@
-<h2 class="name-title text-center"><%= @toy.name %></h2>
+<h2 class="name-title text-center"><%= @toy.name.capitalize %></h2>
+
+  <div style="display: flex;
+      justify-content: center;
+      align-items: center;">
+        <% if @toy.description %>
+          <div><p><%= @toy.description.capitalize %></p></div>
+        <% end %>
+  </div>
 
 <div class="parent">
   <% @toy.photos.each_with_index do |photo, index|  %>
@@ -6,11 +14,11 @@
       <%= cl_image_tag photo.key, height: "100%", width: "100%" %>
     </div>
   <% end %>
-  <div class="div4">
-      <h4><%= @toy.description %></h4>
-  </div>
-  <div class="div5">
-      <p>price: <%= @toy.price %> $</p>
+
+  <div class="div5" style="display: flex;
+      justify-content: center;
+      align-items: center;">
+      <h4>price: <%= @toy.price %> $</h4>
   </div>
 </div>
 
@@ -20,8 +28,12 @@
 <div class= "offer-button">
 
     <%= simple_form_for [@toy, @offer] do |f| %>
-      <%= f.input :price %>
 
-      <%= f.button :submit, class: "btn btn-primary" %>
+      <div style="display: flex; justify-content: center;flex-direction: column;">
+      <label for="price">Give your price</label>
+      <%= f.input :price, label: false%>
+
+      <%= f.button :submit, "Send your offer", class: "btn btn-flat" %>
+      </div>
     <% end %>
 </div>
