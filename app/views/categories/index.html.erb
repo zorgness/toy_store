@@ -4,12 +4,31 @@
   <div class="right"></div>
   <h1>Welcome to ToyStore <strong><%= current_user.first_name %></strong> </h1>
   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi sequi nesciunt nostrum consequatur dolores odit corporis veniam fugit perspiciatis, laborum, iste facilis molestias mollitia dicta commodi dolorem tempora, excepturi minus?</p>
-  <div class="search-form">
-    <input type="text" name="" id="">
-    <button class="btn btn-info">Search</button>
+
+
+<div class="search-block">
+
+    <%= form_tag root_path, method: :get, class: "d-flex" do %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a category"
+      %>
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+    </div>
+<% end %>
+
+
+
   </div>
 
+
 </div>
+
+
 
 
 
