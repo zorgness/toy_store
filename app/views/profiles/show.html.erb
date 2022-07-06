@@ -31,7 +31,7 @@
   </div>
 
 
-  <div>
+  <div class="offer-list blue">
       <h3>My Offers</h3>
 
       <% current_user.toys.each do |toy| %>
@@ -43,7 +43,7 @@
       <% end %>
   </div>
 
-  <div>
+  <div class="request-list green">
     <h3>My Requests</h3>
     <% current_user.offers.each do |offer| %>
       <p>your have proposed: <%= offer.price %> $ for <%= offer.toy.name %> to <%= offer.toy.user.first_name %> </p>
