@@ -1,3 +1,17 @@
+<div class="full-wrapper">
+<div>
+  <div class="left"></div>
+  <div class="right"></div>
+  <h1>Welcome to ToyStore <strong><%= current_user.first_name %></strong> </h1>
+  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi sequi nesciunt nostrum consequatur dolores odit corporis veniam fugit perspiciatis, laborum, iste facilis molestias mollitia dicta commodi dolorem tempora, excepturi minus?</p>
+  <div class="search-form">
+    <input type="text" name="" id="">
+    <button class="btn btn-info">Search</button>
+  </div>
+
+</div>
+
+
 
   <div class="cards">
     <% @categories.each do |category| %>
@@ -7,4 +21,5 @@
         </div>
       <% end %>
     <% end %>
+</div>
 </div>
